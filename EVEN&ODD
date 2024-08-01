@@ -1,0 +1,49 @@
+package gradecalualtion;
+import java.util.Scanner;
+
+
+
+
+
+public class FilterNum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for the size of the array
+        System.out.print("Enter the number of elements in the array: ");
+        int size = scanner.nextInt();
+
+        int[] numbers = new int[size];
+
+        // Input array elements from the user
+        System.out.println("Enter the numbers:");
+        for (int i = 0; i < size; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+        // Ask whether to filter out even or odd numbers
+        System.out.print("Do you want to filter out even or odd numbers? (even/odd): ");
+        String choice = scanner.next().toLowerCase();
+
+        ArrayList<Integer> filteredNumbers = new ArrayList<>();
+
+        // Filter numbers based on user choice
+        for (int number : numbers) {
+            if (choice.equals("even")) {
+                if (number % 2 == 0) {
+                    filteredNumbers.add(number);
+                }
+            } else if (choice.equals("odd")) {
+                if (number % 2 != 0) {
+                    filteredNumbers.add(number);
+                }
+            }
+        }
+
+        // Display the filtered numbers
+        System.out.println("Filtered numbers:");
+        for (int num : filteredNumbers) {
+            System.out.print(num + " ");
+        }
+    }
+}
